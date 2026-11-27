@@ -19,15 +19,37 @@ modules:
 
   - type: dnf
     repos:
+      files:
+       - https://packages.microsoft.com/yumrepos/vscode/config.repo
       copr:
+        - bieszczaders/kernel-cachyos-addons
         - ryanabx/cosmic-epoch
         - uhdbits/kernel-cachyos-znver4-lto
     install:
       packages:
+        # DE/Dependencies
         - cosmic-desktop
+        - dbus-daemon
+        - dbus-tools
+        - dbus-x11
+        - gcr3
+        - gcr3-base
+        - gnome-keyring
+        - gnome-keyring-pam
+        - pop-sound-theme
+        - system-config-printer
+        # Kernel
+        - cachyos-settings
         - kernel-cachyos-znver4-lto
+        - scx-manager
+        - scx-scheds
+        # Software
+        - code
+        - cosmic-desktop
+        - gcc
         - gparted
         - quickshell
+        - wireshark
         - zsh
     remove:
       packages:
@@ -35,11 +57,14 @@ modules:
         # "firefox" is the main package, "firefox-langpacks" is a dependency
         - firefox
         - firefox-langpacks # also remove firefox dependency (not required for all packages, this is a special case)
+        # Kernel
         - kernel
         - kernel-core
         - kernel-modules
         - kernel-modules-core
         - kernel-modules-extra
+        - systemd-oomd-defaults
+        - zram-generator-defaults
 
   - type: default-flatpaks
     configurations:
