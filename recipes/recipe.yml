@@ -36,7 +36,6 @@ modules:
         - gcr3-base
         - gnome-keyring
         - gnome-keyring-pam
-        - pop-sound-theme
         - system-config-printer
         # Kernel
         - cachyos-settings
